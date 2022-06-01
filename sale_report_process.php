@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Reporte de ventas';
+$page_title = 'Reporte de salidas';
 $results = '';
   require_once('includes/load.php');
   // Checkin What level user has permission to view this page
@@ -28,19 +28,15 @@ $results = '';
 <html lang="en-US">
  <head>
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-   <title>Reporte de ventas</title>
+   <title>Reporte de salidas</title>
      <link rel="stylesheet" href="libs/css/bootstrap.min.css" />
    <style>
-   @media print {
-     html,body{
-        font-size: 9.5pt;
-        margin: 0;
-        padding: 0;
-     }.page-break {
-       page-break-before:always;
-       width: auto;
-       margin: auto;
-      }
+    .imprimir{
+      width:90%;
+      margin: 0 auto;
+    }
+    .no_imprimir{
+      text-align:center;
     }
     .page-break{
       width: 980px;
@@ -49,10 +45,10 @@ $results = '';
      .sale-head{
        margin: 40px 0;
        text-align: center;
-     }.sale-head h1,.sale-head strong{
+     }.sale-head h3,.sale-head strong{
        padding: 10px 20px;
        display: block;
-     }.sale-head h1{
+     }.sale-head h3{
        margin: 0;
        border-bottom: 1px solid #212121;
      }.table>thead:first-child>tr:first-child>th{
@@ -66,20 +62,41 @@ $results = '';
      }.sale-head,table.table thead tr th,table tbody tr td,table tfoot tr td{
        border: 1px solid #212121;
        white-space: nowrap;
-     }.sale-head h1,table thead tr th,table tfoot tr td{
+     }.sale-head h3,table thead tr th,table tfoot tr td{
        background-color: #f8f8f8;
      }tfoot{
        color:#000;
        text-transform: uppercase;
        font-weight: 500;
      }
+   @media print {
+    .imprimir{
+      margin:0;
+    }
+    .no_imprimir{
+      display:none;
+    }
+     html,body{
+        font-size: 9.5pt;
+        margin: 0;
+        padding: 0;
+     }.page-break {
+       page-break-before:always;
+       width: auto;
+       margin: auto;
+      }
+      .sale-head.pull-right{
+        
+      }
+    }
+    
    </style>
 </head>
 <body>
   <?php if($results): ?>
-    <div class="page-break">
+    <div class="imprimir">
        <div class="sale-head pull-right">
-           <h1>Reporte de ventas</h1>
+           <h3>Reporte de salidas</h3>
            <strong><?php if(isset($start_date)){ echo $start_date;}?> a <?php if(isset($end_date)){echo $end_date;}?> </strong>
        </div>
       <table class="table table-border">
@@ -88,7 +105,7 @@ $results = '';
               <th>Fecha</th>
               <th>Descripción</th>
               <th>Precio de compra</th>
-              <th>Precio de venta</th>
+              <th>Precio de salida</th>
               <th>Cantidad total</th>
               <th>TOTAL</th>
           </tr>
@@ -123,9 +140,13 @@ $results = '';
         </tfoot>
       </table>
     </div>
+
+    <div class="no_imprimir">
+      <a class="btn btn-primary" onclick="window.print()">Imprimir</a>
+    </div>
   <?php
     else:
-        $session->msg("d", "No se encontraron ventas. ");
+        $session->msg("d", "No se encontraron salidas. ");
         redirect('sales_report.php', false);
      endif;
   ?>
