@@ -42,7 +42,7 @@
                 <th> Imagen</th>
                 <th> Descripción </th>
                 <th class="text-center" style="width: 10%;"> Categoría </th>
-                <th class="text-center" style="width: 10%;"> Stock </th>
+                <th class="text-center" style="width: 10%;"> Existencias </th>
                 <th class="text-center" style="width: 10%;"> Precio de compra </th>
                 <th class="text-center" style="width: 10%;"> Precio de venta </th>
                 <th class="text-center" style="width: 10%;"> Agregado </th>
@@ -69,7 +69,16 @@
                   <?php echo remove_junk($product['codigo']); ?>  
                   </td>
                 <td class="text-center"> <?php echo remove_junk($product['categorie']); ?></td>
-                <td class="text-center"> <?php echo remove_junk($product['quantity']); ?></td>
+                <td class="text-center" style="background:<?php
+                  $cantidad=remove_junk($product['quantity']);
+                  if($cantidad < 5 && $cantidad > 3){
+                    echo("#e7ef68");
+                  }
+                  if($cantidad<=1){
+                    echo("#e74646");
+                  }
+
+                ?>"> <?php echo remove_junk($product['quantity']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['buy_price']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['sale_price']); ?></td>
                 <td class="text-center"> <?php echo read_date($product['date']); ?></td>
