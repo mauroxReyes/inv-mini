@@ -69,9 +69,9 @@
          <table class="table table-bordered">
            <thead>
             <th> Producto </th>
-            <th> Precio </th>
+<!--             <th> Precio </th> -->
             <th> Cantidad </th>
-            <th> Total </th>
+ <!--            <th> Total </th> -->
             <th> Agregado</th>
             <th> Acciones</th>
            </thead>

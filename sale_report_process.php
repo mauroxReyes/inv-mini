@@ -104,10 +104,10 @@ $results = '';
           <tr>
               <th>Fecha</th>
               <th>Descripción</th>
-              <th>Precio de compra</th>
-              <th>Precio de salida</th>
+<!--               <th>Precio de compra</th>
+              <th>Precio de salida</th> -->
               <th>Cantidad total</th>
-              <th>TOTAL</th>
+              <!-- <th>TOTAL</th> -->
           </tr>
         </thead>
         <tbody>
@@ -117,14 +117,14 @@ $results = '';
               <td class="desc">
                 <h6><?php echo remove_junk(ucfirst($result['name']));?></h6>
               </td>
-              <td class="text-right"><?php echo remove_junk($result['buy_price']);?></td>
-              <td class="text-right"><?php echo remove_junk($result['sale_price']);?></td>
+             <!--  <td class="text-right"><?php echo remove_junk($result['buy_price']);?></td>
+              <td class="text-right"><?php echo remove_junk($result['sale_price']);?></td> -->
               <td class="text-right"><?php echo remove_junk($result['total_sales']);?></td>
-              <td class="text-right"><?php echo remove_junk($result['total_saleing_price']);?></td>
+              <!-- <td class="text-right"><?php echo remove_junk($result['total_saleing_price']);?></td> -->
           </tr>
         <?php endforeach; ?>
         </tbody>
-        <tfoot>
+        <tfoot style="display:none">
          <tr class="text-right">
            <td colspan="4"></td>
            <td colspan="1"> Total </td>
