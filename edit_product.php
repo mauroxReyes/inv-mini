@@ -122,7 +122,7 @@ if(!$product){
                    </div>
                   </div>
                  </div>
-                 <div class="col-md-4">
+                 <div class="col-md-4" style="display:none;">
                   <div class="form-group">
                     <label for="qty">Precio de compra</label>
                     <div class="input-group">
@@ -134,7 +134,7 @@ if(!$product){
                    </div>
                   </div>
                  </div>
-                  <div class="col-md-4">
+                  <div class="col-md-4" style="display:none;">
                    <div class="form-group">
                      <label for="qty">Precio de venta</label>
                      <div class="input-group">
