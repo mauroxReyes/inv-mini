@@ -37,6 +37,7 @@ if(!$product){
        $result = $db->query($query);
                if($result && $db->affected_rows() === 1){
                  $session->msg('s',"Producto ha sido actualizado. ");
+                 $db->query("INSERT INTO `entradas`(`id`, `name`, `quantity`,`status`) VALUES ('','".$p_name."','".$p_qty."','Actualizacion')");
                  redirect('product.php', false);
                } else {
                  $session->msg('d',' Lo siento, actualización falló.');

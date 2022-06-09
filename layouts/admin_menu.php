@@ -28,6 +28,7 @@
     </a>
     <ul class="nav submenu">
        <li><a href="product.php">Administrar productos</a> </li>
+       <li><a href="product_fallas.php">Administrar Fallas</a> </li>
        <li><a href="add_product.php">Agregar productos</a> </li>
    </ul>
   </li>

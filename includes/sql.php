@@ -221,6 +221,19 @@ function tableExists($table){
     return find_by_sql($sql);
 
    }
+   function join_product_fallas_table(){
+     global $db;
+
+    $sql  =" SELECT p.id,p.name,p.codigo,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
+    $sql  .=" AS categorie,m.file_name AS image";
+    $sql  .=" FROM products p";
+    $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
+    $sql  .=" LEFT JOIN media m ON m.id = p.media_id where p.quantity<=0";
+    $sql  .=" ORDER BY p.id ASC";
+    
+    return find_by_sql($sql);
+
+   }
   /*--------------------------------------------------------------*/
   /* Function for Finding all product name
   /* Request coming from ajax.php for auto suggest
