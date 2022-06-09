@@ -95,6 +95,9 @@ $results = '';
 <body>
   <?php if($results): ?>
     <div class="imprimir">
+      <div class="pull-left">
+        <img src="uploads\img\logo.jpg" alt="" style="width:100px;height:100px;margin-top:2em">
+      </div>
        <div class="sale-head pull-right">
            <h3>Reporte de salidas</h3>
            <strong><?php if(isset($start_date)){ echo $start_date;}?> a <?php if(isset($end_date)){echo $end_date;}?> </strong>
@@ -143,6 +146,7 @@ $results = '';
 
     <div class="no_imprimir">
       <a class="btn btn-primary" onclick="window.print()">Imprimir</a>
+      <a class="btn btn-secondary" href="/gustavo/admin.php">Volver</a>
     </div>
   <?php
     else:

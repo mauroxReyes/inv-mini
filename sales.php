@@ -1,5 +1,5 @@
 <?php
-  $page_title = 'Lista de ventas';
+  $page_title = 'Lista de salidas';
   require_once('includes/load.php');
   // Checkin What level user has permission to view this page
    page_require_level(3);
@@ -19,10 +19,10 @@ $sales = find_all_sale();
         <div class="panel-heading clearfix">
           <strong>
             <span class="glyphicon glyphicon-th"></span>
-            <span>Todas la ventas</span>
+            <span>Todas la salidas</span>
           </strong>
           <div class="pull-right">
-            <a href="add_sale.php" class="btn btn-primary">Agregar venta</a>
+            <a href="add_sale.php" class="btn btn-primary">Agregar salida</a>
           </div>
         </div>
         <div class="panel-body">

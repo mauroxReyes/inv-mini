@@ -1,5 +1,5 @@
 <?php
-  $page_title = 'Venta diaria';
+  $page_title = 'Salida diaria';
   require_once('includes/load.php');
   // Checkin What level user has permission to view this page
    page_require_level(3);
@@ -22,7 +22,7 @@
         <div class="panel-heading clearfix">
           <strong>
             <span class="glyphicon glyphicon-th"></span>
-            <span>Venta diaria</span>
+            <span>Salida diaria</span>
           </strong>
         </div>
         <div class="panel-body">

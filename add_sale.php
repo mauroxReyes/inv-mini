@@ -1,5 +1,5 @@
 <?php
-  $page_title = 'Agregar venta';
+  $page_title = 'Agregar salida';
   require_once('includes/load.php');
   // Checkin What level user has permission to view this page
    page_require_level(3);
@@ -24,7 +24,7 @@
 
                 if($db->query($sql)){
                   update_product_qty($s_qty,$p_id);
-                  $session->msg('s',"Venta agregada ");
+                  $session->msg('s',"salida agregada ");
                   redirect('add_sale.php', false);
                 } else {
                   $session->msg('d','Lo siento, registro falló.');
@@ -61,7 +61,7 @@
       <div class="panel-heading clearfix">
         <strong>
           <span class="glyphicon glyphicon-th"></span>
-          <span>Editar venta</span>
+          <span>Editar salida</span>
        </strong>
       </div>
       <div class="panel-body">
