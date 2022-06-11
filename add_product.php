@@ -69,15 +69,19 @@
           <form method="post" action="add_product.php" class="clearfix">
               <div class="form-group">
                 <div class="input-group">
+
                   <span class="input-group-addon">
+                    <label>Nombre del producto</label>
                    <i class="glyphicon glyphicon-th-large"></i>
                   </span>
+
                   <input type="text" class="form-control" name="product-title" placeholder="Descripción">
                </div>
               </div>
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
+                  <label>Codigo de barras</label>
                    <i class="glyphicon glyphicon-th-large"></i>
                   </span>
                   <input type="text" class="form-control" name="product-cod" placeholder="Codigo de barras">
@@ -86,6 +90,7 @@
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
+                  <label>Lote</label>
                    <i class="glyphicon glyphicon-th-large"></i>
                   </span>
                   <input type="text" class="form-control" name="lote-cod" placeholder="Codigo del lote">
@@ -94,6 +99,7 @@
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
+                  <label >Fecha de vencimiento</label>
                    <i class="glyphicon glyphicon-th-large"></i>
                   </span>
                   <input type="date" class="form-control" name="product-end_date" placeholder="Fecha de fencimiento">
@@ -127,6 +133,7 @@
                  <div class="col-md-4">
                    <div class="input-group">
                      <span class="input-group-addon">
+                      <label >Cantidad</label>
                       <i class="glyphicon glyphicon-shopping-cart"></i>
                      </span>
                      <input type="number" class="form-control" name="product-quantity" placeholder="Cantidad">

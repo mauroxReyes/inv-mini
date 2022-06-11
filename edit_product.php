@@ -76,6 +76,7 @@ if(!$product){
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
+                    <label >Nombre del producto</label>
                    <i class="glyphicon glyphicon-th-large"></i>
                   </span>
                   <input type="text" class="form-control" name="product-title" value="<?php echo remove_junk($product['name']);?>">
@@ -85,6 +86,7 @@ if(!$product){
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
+                    <label >Codigo de barras</label>
                    <i class="glyphicon glyphicon-th-large"></i>
                   </span>
                   <input type="text" class="form-control" name="product-cod" value="<?php echo remove_junk($product['codigo']);?>">
@@ -94,6 +96,7 @@ if(!$product){
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
+                    <label >Lote</label>
                    <i class="glyphicon glyphicon-th-large"></i>
                   </span>
                   <input type="text" class="form-control" name="lote-cod" placeholder="Lote" value="<?php echo remove_junk($product['lote']);?>">
@@ -103,6 +106,7 @@ if(!$product){
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
+                    <label >Fecha de vencimiento</label>
                    <i class="glyphicon glyphicon-th-large"></i>
                   </span>
                   <input type="date" class="form-control" name="product-end_date" placeholder="Fecha de vencimiento" value="<?php echo remove_junk($product['fecha_vencimiento']);?>">
@@ -139,6 +143,7 @@ if(!$product){
                     <label for="qty">Cantidad</label>
                     <div class="input-group">
                       <span class="input-group-addon">
+                      <label >Cantidad</label>
                        <i class="glyphicon glyphicon-shopping-cart"></i>
                       </span>
                       <input type="number" class="form-control" name="product-quantity" value="<?php echo remove_junk($product['quantity']); ?>">
