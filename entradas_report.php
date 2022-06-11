@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Reporte de salidas';
+$page_title = 'Reporte de Entradas';
   require_once('includes/load.php');
   // Checkin What level user has permission to view this page
    page_require_level(3);
@@ -17,7 +17,7 @@ $page_title = 'Reporte de salidas';
 
       </div>
       <div class="panel-body">
-          <form class="clearfix" method="post" action="sale_report_process.php">
+          <form class="clearfix" method="post" action="entradas_report_process.php">
             <div class="form-group">
               <label class="form-label">Rango de fechas</label>
                 <div class="input-group">

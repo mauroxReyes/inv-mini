@@ -56,7 +56,7 @@
                 ?>
                 
               <tr>
-                <td class="text-center"><?php echo count_id();?></td>
+               <td class="text-center"><?php echo count_id();?></td>
                 <td>
                   <?php if($product['media_id'] === '0'): ?>
                     <img class="img-avatar img-circle" src="uploads/products/no_image.jpg" alt="">
@@ -80,9 +80,11 @@
                   }
 
                 ?>"> <?php echo remove_junk($product['quantity']); ?></td>
+                <td class="text-center"><?php echo remove_junk($product['lote']); ?></td>
 <!--                 <td class="text-center"> <?php echo remove_junk($product['buy_price']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['sale_price']); ?></td> -->
                 <td class="text-center"> <?php echo read_date($product['date']); ?></td>
+                <td class="text-center"> <?php echo read_date($product['fecha_vencimiento']); ?></td>
                 <td class="text-center">
                   <div class="btn-group">
                     <a href="edit_product.php?id=<?php echo (int)$product['id'];?>" class="btn btn-info btn-xs"  title="Editar" data-toggle="tooltip">

@@ -25,6 +25,8 @@ if(!$product){
        $p_qty   = remove_junk($db->escape($_POST['product-quantity']));
        $p_buy   = remove_junk($db->escape($_POST['buying-price']));
        $p_sale  = remove_junk($db->escape($_POST['saleing-price']));
+       $p_lote  = remove_junk($db->escape($_POST['lote-cod']));
+       $p_end_date  = remove_junk($db->escape($_POST['product-end_date']));
        if (is_null($_POST['product-photo']) || $_POST['product-photo'] === "") {
          $media_id = '0';
        } else {
@@ -32,12 +34,14 @@ if(!$product){
        }
        $query   = "UPDATE products SET";
        $query  .=" name ='{$p_name}', quantity ='{$p_qty}',";
-       $query  .=" buy_price ='{$p_buy}', sale_price ='{$p_sale}', categorie_id ='{$p_cat}',media_id='{$media_id}',codigo='{$p_cod}'";
+       $query  .=" buy_price ='{$p_buy}', sale_price ='{$p_sale}', categorie_id ='{$p_cat}',media_id='{$media_id}',codigo='{$p_cod}',lote='{$p_lote}',fecha_vencimiento='{$p_end_date}'";
        $query  .=" WHERE id ='{$product['id']}'";
        $result = $db->query($query);
                if($result && $db->affected_rows() === 1){
+                 $cantidad=$p_qty-$product['quantity'];
+                 if($cantidad<=0){$cantidad=0;}
                  $session->msg('s',"Producto ha sido actualizado. ");
-                 $db->query("INSERT INTO `entradas`(`id`, `name`, `quantity`,`status`) VALUES ('','".$p_name."','".$p_qty."','Actualizacion')");
+                 $db->query("INSERT INTO `entradas`(`id`, `name`, `quantity`,`status`) VALUES ('','".$p_name."','".$cantidad."','Actualizacion')");
                  redirect('product.php', false);
                } else {
                  $session->msg('d',' Lo siento, actualización falló.');
@@ -84,6 +88,24 @@ if(!$product){
                    <i class="glyphicon glyphicon-th-large"></i>
                   </span>
                   <input type="text" class="form-control" name="product-cod" value="<?php echo remove_junk($product['codigo']);?>">
+               </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                   <i class="glyphicon glyphicon-th-large"></i>
+                  </span>
+                  <input type="text" class="form-control" name="lote-cod" placeholder="Lote" value="<?php echo remove_junk($product['lote']);?>">
+               </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                   <i class="glyphicon glyphicon-th-large"></i>
+                  </span>
+                  <input type="date" class="form-control" name="product-end_date" placeholder="Fecha de vencimiento" value="<?php echo remove_junk($product['fecha_vencimiento']);?>">
                </div>
               </div>
 

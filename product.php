@@ -43,9 +43,11 @@
                 <th> Descripción </th>
                 <th class="text-center" style="width: 10%;"> Categoría </th>
                 <th class="text-center" style="width: 10%;"> Existencias </th>
+                <th class="text-center" style="width: 10%;"> Lote</th>
 <!--                 <th class="text-center" style="width: 10%;"> Precio de compra </th>
                 <th class="text-center" style="width: 10%;"> Precio de venta </th> -->
                 <th class="text-center" style="width: 10%;"> Agregado </th>
+                <th class="text-center" style="width: 10%;"> Vence </th>
                 <th class="text-center" style="width: 100px;"> Acciones </th>
               </tr>
             </thead>
@@ -79,9 +81,20 @@
                   }
 
                 ?>"> <?php echo remove_junk($product['quantity']); ?></td>
+                <td class="text-center"><?php echo remove_junk($product['lote']); ?></td>
 <!--                 <td class="text-center"> <?php echo remove_junk($product['buy_price']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['sale_price']); ?></td> -->
                 <td class="text-center"> <?php echo read_date($product['date']); ?></td>
+                <td class="text-center" style="background:<?php
+
+                  if(make_date() >= read_date($product['fecha_vencimiento'])){
+                    echo("red;color:black");
+                  }else{
+                    echo("green;color:white");
+                  }
+
+
+                ?>"> <?php echo read_date($product['fecha_vencimiento']); ?></td>
                 <td class="text-center">
                   <div class="btn-group">
                     <a href="edit_product.php?id=<?php echo (int)$product['id'];?>" class="btn btn-info btn-xs"  title="Editar" data-toggle="tooltip">

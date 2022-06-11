@@ -59,4 +59,13 @@
         <li><a href="daily_sales.php">Salidas diarias</a> </li>
       </ul>
   </li>
+  <li>
+    <a href="#" class="submenu-toggle">
+      <i class="glyphicon glyphicon-signal"></i>
+       <span>Reporte de Entradas</span>
+      </a>
+      <ul class="nav submenu">
+        <li><a href="entradas_report.php">Entradas por fecha </a></li>
+      </ul>
+  </li>
 </ul>

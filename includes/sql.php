@@ -211,7 +211,7 @@ function tableExists($table){
   function join_product_table(){
      global $db;
 
-    $sql  =" SELECT p.id,p.name,p.codigo,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
+    $sql  =" SELECT p.id,p.name,p.codigo,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,p.lote,p.fecha_vencimiento,c.name";
     $sql  .=" AS categorie,m.file_name AS image";
     $sql  .=" FROM products p";
     $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
@@ -224,7 +224,7 @@ function tableExists($table){
    function join_product_fallas_table(){
      global $db;
 
-    $sql  =" SELECT p.id,p.name,p.codigo,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
+    $sql  =" SELECT p.id,p.name,p.codigo,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,p.lote,p.fecha_vencimiento,c.name";
     $sql  .=" AS categorie,m.file_name AS image";
     $sql  .=" FROM products p";
     $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
@@ -334,6 +334,15 @@ function find_sale_by_dates($start_date,$end_date){
   $sql .= " WHERE s.date BETWEEN '{$start_date}' AND '{$end_date}'";
   $sql .= " GROUP BY DATE(s.date),p.name";
   $sql .= " ORDER BY DATE(s.date) DESC";
+  return $db->query($sql);
+}
+function find_entradas_by_dates($start_date,$end_date){
+  global $db;
+  $start_date  = date("Y-m-d", strtotime($start_date));
+  $end_date    = date("Y-m-d", strtotime($end_date));
+
+  
+  $sql="select *,sum(quantity) as total_sales from entradas where fecha BETWEEN '{$start_date}' AND '{$end_date}' GROUP BY DATE(fecha),name ORDER BY DATE(fecha),name";
   return $db->query($sql);
 }
 /*--------------------------------------------------------------*/
