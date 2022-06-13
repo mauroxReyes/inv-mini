@@ -19,7 +19,7 @@
           $sql  = "INSERT INTO sales (";
           $sql .= " product_id,qty,price,date";
           $sql .= ") VALUES (";
-          $sql .= "'{$p_id}','{$s_qty}','{$s_total}','{$s_date}'";
+          $sql .= "'{$p_id}','{$s_qty}','0','{$s_date}'";
           $sql .= ")";
 
                 if($db->query($sql)){

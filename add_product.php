@@ -12,7 +12,7 @@
    validate_fields($req_fields);
    if(empty($errors)){
      $p_name  = remove_junk($db->escape($_POST['product-title']));
-     $p_cod   = remove_junk($db->escape($_POST['product-cod']));
+     $p_cod   = $_POST['product-cod'];
      $p_cat   = remove_junk($db->escape($_POST['product-categorie']));
      $p_qty   = remove_junk($db->escape($_POST['product-quantity']));
      $p_buy   = remove_junk($db->escape($_POST['buying-price']));
