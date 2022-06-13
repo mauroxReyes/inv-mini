@@ -20,7 +20,7 @@ if(!$product){
 
    if(empty($errors)){
        $p_name  = remove_junk($db->escape($_POST['product-title']));
-       $p_cod   = $_POST['product-cod'];
+       $p_cod   = $db->escape($_POST['product-cod']);
        $p_cat   = (int)$_POST['product-categorie'];
        $p_qty   = remove_junk($db->escape($_POST['product-quantity']));
        $p_buy   = remove_junk($db->escape($_POST['buying-price']));
@@ -138,7 +138,7 @@ if(!$product){
 
               <div class="form-group">
                <div class="row">
-                 <div class="col-md-4">
+                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="qty">Cantidad</label>
                     <div class="input-group">
