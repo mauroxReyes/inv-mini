@@ -11,8 +11,9 @@
    $req_fields = array('product-title','product-cod','product-categorie','product-quantity','buying-price', 'saleing-price' );
    validate_fields($req_fields);
    if(empty($errors)){
+    $codigo=remove_junk($db->escape($_POST['product-cod']));
      $p_name  = remove_junk($db->escape($_POST['product-title']));
-     $p_cod   = $db->escape($_POST['product-cod']);
+     $p_cod   = remove_junk($db->escape(str_replace("-"," - ", $_POST['product-cod'])));
      $p_cat   = remove_junk($db->escape($_POST['product-categorie']));
      $p_qty   = remove_junk($db->escape($_POST['product-quantity']));
      $p_buy   = remove_junk($db->escape($_POST['buying-price']));
@@ -29,11 +30,12 @@
      $query  = "INSERT INTO products (";
      $query .=" name,quantity,buy_price,sale_price,categorie_id,media_id,date,codigo,lote,fecha_vencimiento";
      $query .=") VALUES (";
-     $query .=" '{$p_name}', '{$p_qty}', '{$p_buy}', '{$p_sale}', '{$p_cat}', '{$media_id}', '{$date}',{$p_cod},'{$p_sale}','{$p_end_date}'";
+     $query .=" '{$p_name}', '{$p_qty}', '{$p_buy}', '{$p_sale}', '{$p_cat}', '{$media_id}', '{$date}','{$codigo}','{$p_lote}','{$p_end_date}'";
      $query .=")";
      $query .=" ON DUPLICATE KEY UPDATE name='{$p_name}'";
-     if($db->query($query)){
-       $session->msg('s',"Producto agregado exitosamente. ");
+     $datos=$db->query(utf8_encode($query));
+     if($datos){
+       $session->msg('s',"Producto agregado exitosamente. ".$_POST['product-cod']);
        $db->query("INSERT INTO `entradas`(`id`, `name`, `quantity`,`status`) VALUES ('','".$p_name."','".$p_qty."','entrada')");
        redirect('add_product.php', false);
      } else {
@@ -66,7 +68,7 @@
         </div>
         <div class="panel-body">
          <div class="col-md-12">
-          <form method="post" action="add_product.php" class="clearfix">
+          <form method="post" action="add_product.php" class="clearfix" accept-charset="utf-8">
               <div class="form-group">
                 <div class="input-group">
 
@@ -84,7 +86,7 @@
                   <label>Codigo de barras</label>
                    <i class="glyphicon glyphicon-th-large"></i>
                   </span>
-                  <input type="text" class="form-control" name="product-cod" placeholder="Codigo de barras">
+                  <input  type="text" class="form-control" name="product-cod" placeholder="Codigo de barras">
                </div>
               </div>
               <div class="form-group">
